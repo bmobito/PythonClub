@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Python Club: Resources</h2>
+<h2>Resources</h2>
 <p>This page displays our Resources View:</p>
 <ul>{% for r in resource_list%}
-    <li>{% r.resource %}</li>
+    <li>{{ r.resources }}</li>
     {% endfor %}
 </ul>
 
