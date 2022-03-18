@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Meetings</h2>
+<p>This page displays our Meetings View:</p>
+<ul>
+    {% for m in meeting_list %}
+    <li><a href="{% url 'meeting' id=m.meeting.id % }"> {{ m.meetingtitle }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
