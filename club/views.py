@@ -10,7 +10,7 @@ def resources(request):
     return render(request, 'club/resources.html', {'resource_list': resource_list})
 
 def meetings(request):
-    resource_list=Meeting.objects.all()
+    meeting_list=Meeting.objects.all()
     return render(request, 'club/meetings.html', {'meeting_list': meeting_list})    
 
 def meetingDetails(request, id):
