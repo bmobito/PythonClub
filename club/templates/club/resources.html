@@ -4,7 +4,7 @@
 <p>This page displays our Resources View:</p>
 <ul>
     {% for r in resource_list %}
-    <li>{{ r.resourcename }}</li>
+    <li><a href="{% url 'resources' id=r.resourcename % }">{{ r.resourcename }}</a></li>
     {% endfor %}
 </ul>
 

@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Meeting Details</h2>
-<p>Meeting Title: {{meeting.meetingtitle}}</br>
-Meeting Date : {{meeting.meetingdate}} </br>
-Meeting Time : {{meeting.meetingtime}} </br>
-Meeting Location : {{meeting.meetinglocation}} </br>
-Meeting Agenda : {{meeting.meetingagenda}}</p>
+<p>
+<ul>
+Meeting Title: {{meeting.meetingtitle}}<br>
+Meeting Date : {{meeting.meetingdate}} <br>
+Meeting Time : {{meeting.meetingtime}} <br>
+Meeting Location : {{meeting.meetinglocation}} <br>
+Meeting Agenda : {{meeting.meetingagenda}} <br>
+</ul>
+</p>
+{% endfor %}
 
 {% endblock content %}
