@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Meeting, Resource 
+from .models import Meeting, Resource, MeetingMinutes 
 
 # Create your views here.
 def index(request):
@@ -14,5 +14,5 @@ def meetings(request):
     return render(request, 'club/meetings.html', {'meeting_list': meeting_list})    
 
 def meetingDetails(request, id):
-    meeting=get_object_or_404(Meeting, pk=id)
-    return render(request, 'club/meetingDetails.html', {'meeting' : meeting})
+    meetingDetail=get_object_or_404(Meeting, pk=id)
+    return render(request, 'club/meetingDetails.html', {'meetingDetail' : meetingDetail})
