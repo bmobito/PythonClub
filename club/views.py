@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .models import Meeting, Resource, MeetingMinutes, Event
 from .forms import MeetingForm, ResourceForm
 
@@ -19,6 +20,7 @@ def meetingdetail(request, id):
     meetingdetail=get_object_or_404(Meeting, pk=id)
     return render(request, 'club/meetingdetail.html', {'meetingdetail' : meetingdetail})
 
+@login_required
 def newmeeting(request):
     form=MeetingForm
 
@@ -32,6 +34,7 @@ def newmeeting(request):
         form=MeetingForm()
     return render(request, 'club/newmeeting.html', {'form': form})
 
+@login_required
 def newresource(request):
     form=ResourceForm
 
@@ -44,3 +47,9 @@ def newresource(request):
     else:
         form=ResourceForm()
     return render(request, 'club/newresource.html', {'form': form})
+
+def loginmessage(request):
+    return render(request, 'club/loginmessage.html')
+
+def logoutmessage(request):
+    return render(request, 'club/logoutmessage.html')
