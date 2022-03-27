@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Meeting Details</h2>
+<p>This page displays Meeting Details:</p>
+<ul>
+    {% for m in meetingdetail %}
+    <li>Title: {{meeting.meetingtitle}}</li>
+    <li>Meeting Date : {{meeting.meetingdate}}</li>
+    <li>Meeting Time : {{meeting.meetingtime}}</li>
+    <li>Meeting Location : {{meeting.meetinglocation}}</li>
+    <li>Meeting Agenda : {{meeting.meetingagenda}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

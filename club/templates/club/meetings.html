@@ -4,7 +4,7 @@
 <p>This page displays our Meetings View:</p>
 <ul>
     {% for m in meeting_list %}
-    <li><a href="{% url 'details' id=m.id % }"> {{ m.meetingtitle }}</a></li>
+    <li><a href="{% url 'meetingdetails' id=m.id % }"> {{ m.meetingtitle }}</a></li>
     {% endfor %}
 </ul>
 
