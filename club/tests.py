@@ -1,6 +1,10 @@
 import time
+from urllib import response
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy, reverse
+
+from club.views import newmeeting
 from .models import Meeting, Resource, MeetingMinutes, Event
 import datetime
 from .forms import MeetingForm, ResourceForm
@@ -90,3 +94,18 @@ class NewResourceForm(TestCase):
     def test_resourceform_empty(self):
         form=ResourceForm(data={'resourcename': ""})
         self.assertFalse(form.is_valid())
+
+class New_Meeting_Authentication_Test(TestCase):
+    def setUp(self):
+        self.test_user=User.objects.create_user(username='Test Subject 4', password='P@ssw0rd1')
+        self.title=Meeting.objects.create('Test Meeting 8')
+        self.meeting=Meeting.objects.create(
+            meetingtitle=self.title,
+            meetingtime='12:00:00', 
+            meetinglocation='Off-campus',
+            meetingagenda='See previous team email'
+            )
+            
+    def test_redirect_if_not_logged_in(self):
+        response=self.client.get(reverse('newmeeting'))
+        self.assertRedirects(response, 'accounts/login/?next=/tech/newmeeting')
